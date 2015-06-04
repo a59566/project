@@ -6,6 +6,35 @@
 
 	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
 	<link href="./css/CSS_Regist.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var check=function()
+	{
+		
+		$.ajax({
+			url: "user_check.php",
+			data: $('#user').serialize(),
+			type:"POST",
+			dataType:'text',
+
+			success: function(msg)
+			{
+				document.getElementById('msg').innerHTML= msg.substr(1) ;
+			},
+
+			error:function(xhr, ajaxOptions, thrownError)
+			{
+				alert(xhr.status);
+				alert(thrownError);
+			}
+		});
+	}
+		
+		
+		
+	</script>
 	
 	<?php
 		$link = mysqli_connect("localhost","root","123456","group_12")
@@ -69,14 +98,17 @@
 	<div id="member_regist">
 		<h1>會員註冊</h1>
 		<form name="form" action="" method="POST" id="regist_input">
-			<h2>設定帳號</h2>
-			<input type="text" name="user" size="25">　※英數任意混合
+			<h2>設定帳號　
+				<div id="user_check" onclick="check();">check</div>
+				<span id="msg"></span>
+			</h2>
+			<input type="text" name="user" id="user" size="25">　※英數任意混合
 			<h2>設定密碼</h2>
-			<input type="password" name="pass" size="25">　※英數混合,長度6~32的字串
+			<input type="password" name="pass" id="pass" size="25">　※英數混合,長度6~32的字串
 			<h2>確認密碼</h2>
-			<input type="password" name="pass_kakuninn" size="25">　※請再輸入一次密碼
+			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">　※請再輸入一次密碼
 			<h2>電子信箱</h2>
-			<input type="email" name="email" size="25">　※請輸入有效的電子信箱
+			<input type="email" name="email" id="email" size="25">　※請輸入有效的電子信箱
 			<br><br><br>
 			<input class="regist_btn" type="submit" name="submit" value="註冊">　　<input class="regist_btn" type="reset" value="清空重填">
 		</form>	

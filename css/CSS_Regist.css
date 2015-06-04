@@ -38,6 +38,21 @@ h2
     margin-top: 20px;
 }
 
+#user_check
+{
+	font-size: 12px;
+	background-color: #66FF66;
+    text-decoration: none;
+	display: inline;
+	border-radius: 5px;
+}
+
+#msg
+{
+	font-size: 12px;
+	color: #FF0000;
+}
+
 .regist_btn
 {
 	background-color: #ffad33;
