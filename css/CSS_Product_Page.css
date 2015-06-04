@@ -1,0 +1,217 @@
+/*以降は商品ページcss*/
+
+#product_container
+{
+	height: 700px;
+	width: 900px;	
+	margin: 60px auto;
+	font-family: "Microsoft JhengHei UI";
+}
+
+#product_top
+{
+	height: 635px;
+	width: 215px;
+	float: left;
+	border: 1px solid #999;
+}
+
+h1
+{
+	height: 25px;
+	width: 215px;
+	background-color: #e8e8e8;
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+	padding-left: 5px;
+	box-sizing: padding-box;
+	margin-top: 0px; 
+}
+
+.product_rank
+{
+	height: 60px;
+	width: 215px;
+	box-sizing: padding-box;
+	padding-left: 5px;
+	float: left;
+}
+
+.product_rank_num
+{
+	height: 57px;
+	width: 20px;
+	float: left;
+	text-align: center;
+}
+
+.product_rank  img 
+{
+	max-width: 45px;
+    height: 45px;
+	float: left;
+	margin-left: 5px;
+}
+
+.product_rank_name
+{
+	height: 26px;
+	width: 125px;
+	margin-left:10px;
+	margin-right:5px;
+	float: left;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.product_rank_artist
+{
+	height: 28px;
+	width: 125px;
+	margin-left:10px;
+	margin-right:5px;
+	float: left;
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#product_right_page
+{
+	height: 700px;
+	width: 680px;
+	margin: 0 auto;
+	float: right;
+}
+
+.slideShow
+{
+	height: 250px;
+    overflow: hidden;
+    position: relative;
+    width: 620px;
+	margin: 0 auto;
+	background-color: #e8e8e8;
+}
+
+.slides 
+{
+    list-style: outside none none;
+    margin: 0;
+	padding: 0;
+}
+
+.slide img
+{
+	border: 0 none;
+    max-height: 250px;
+    width: auto;
+    vertical-align: middle;
+}
+
+#product_new
+{
+	height: 282px;
+	width: 620px;
+	margin: 20px auto;
+	border: 1px solid #999;	
+}
+
+h2
+{
+	height: 25px;
+	width: 100%;
+	background-color: #e8e8e8;
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+	padding-left: 8px;
+	box-sizing: padding-box;
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+
+.product_items
+{
+    float: left;
+    height: 115px;
+    margin-bottom: 8px;
+    margin-left: 8.3px;
+    width: 92px;
+	border: 1px solid #999;	
+}
+
+.item_cover
+{
+	height: 80px;
+	width: 92px;
+	text-align: center;
+}
+
+.item_cover img
+{
+	height: 80px;
+	width: 90px;
+	box-sizing: padding-box;
+	padding: 1px 2px;
+}
+
+.item_info
+{
+	height: 35px;
+	width: 92px;
+}
+
+.item_artist
+{
+	float: left;
+    font-size: 14px;
+    height: 20px;
+    margin-left: 2px;
+    margin-right: 5px;	
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 92px;
+}
+
+.item_title
+{
+	float: left;
+    font-size: 12px;
+    height: 15px;
+    margin-left: 2px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 92px;
+	font-weight: lighter;
+}
+
+#view_log
+{
+	border: 1px solid #999;
+    height: 160px;
+    margin: 20px auto;
+    width: 620px;
+}
+
+h3
+{
+	height: 25px;
+	width: 100%;
+	background-color: #e8e8e8;
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+	padding-left: 8px;
+	box-sizing: padding-box;
+	margin-top: 0px;
+	margin-bottom: 8px;
+}
+

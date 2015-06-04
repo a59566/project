@@ -1,0 +1,61 @@
+/*以降はサインインページCSS*/
+
+#member_regist 
+{
+	height: 440px;
+	width: 600px;
+	margin: 60px auto;
+	border: 1px solid #999;
+	font-family: "Microsoft JhengHei UI";
+}
+
+h1
+{
+	background-color: #e8e8e8;
+    box-sizing: padding-box;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 8px;
+    margin-top: 0;
+    padding-left: 8px;
+    width: 100%;
+}
+
+#regist_input
+{
+	height: 350px;
+	width: 475px;
+	margin: 40px auto;
+}
+
+h2
+{
+	font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.regist_btn
+{
+	background-color: #ffad33;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 30px;
+    width: 80px;
+}
+
+.regist_btn:hover 
+{
+	background-color: #FF8C00;
+}
+
+input
+{
+    font-size: 18px;
+    height: 25px;
+}

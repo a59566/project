@@ -1,0 +1,160 @@
+#header_background
+{
+	background-color: #E8E8E8;
+	min-width: 928px;
+	height: 70px;
+	font-family: "Microsoft JhengHei UI";
+}
+
+#header_box
+{
+	position: relative;
+	height: 70px;
+	width: 928px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+#header_mark
+{
+	float: left;
+	width: 170px;
+	height: 70px;
+}
+
+#header_searchbar
+{
+	height: 50px;
+	padding-top: 20px;
+	float: left;
+	padding-left: 40px;
+}
+
+#search
+{
+	float: left;
+}
+
+#search_text
+{
+	height: 28px;
+	float: left;
+	border: none;
+	font-size: 16px;
+	padding-left: 5px;
+}
+
+#search_btn
+{
+	width: 30px;
+	height: 30px;
+	float: left;
+	border: none;
+	cursor: pointer;
+	font-size: 0px;
+	background-image: url(../img/search_btn.png);
+	background-repeat: no-repeat;
+}
+
+#search_btn:hover
+{
+	background-position: -30px 0;
+}
+
+#header_btn
+{
+	float: left;
+    height: 25px;
+    margin-top: 23px;
+    text-align: center;
+    width: 230px;
+}
+
+#login_btn
+{
+	background-color: #ff9;
+    border-radius: 5px;
+    box-sizing: padding-box;
+    display: inline-block;
+    height: 25px;
+    margin-left: 20px;
+    padding-top: 2px;
+    width: 80px;
+}
+
+#login_btn:hover
+{
+	background-color: #FFD685;
+}
+#cart_btn
+{
+    background-color: #ff9;
+    border-radius: 5px;
+    box-sizing: padding-box;
+    display: inline-block;
+    height: 25px;
+    margin-left: 15px;
+    padding-top: 2px;
+    width: 80px;
+}
+
+#cart_btn:hover
+{
+	background-color: #FFD685;
+}
+
+#header_navi_background
+{	
+	height: 30px;
+	min-width: 928px;
+	background-color: #DFD1C3;
+}
+
+#navi_ul
+{
+	height: 30px;
+    margin: 0 auto;
+    padding-left: 0;
+    position: relative;
+    width: 928px;
+}
+
+li
+{
+	border-left: 4px solid #fff;
+    box-sizing: padding-box;
+    display: block;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    width: 150px;
+}
+
+li:hover
+{
+	background-color: #FFECC9;
+}
+
+#li_right
+{
+	border-right-width: 4px;
+	border-right-style: solid;
+	border-right-color: #FFF;
+}
+
+.no_underline_bold
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;
+	display: block;
+}
+
+.no_underline_light
+{
+	text-decoration: none;
+	color: #000;
+	display: block;
+}
