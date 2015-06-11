@@ -10,18 +10,28 @@
 	
 	<script type="text/javascript">
 	
-	var check=function()
-	{
+	var exist;
+	
+	var user_check = function()
+	{		
+		
 		
 		$.ajax({
 			url: "user_check.php",
 			data: $('#user').serialize(),
 			type:"POST",
 			dataType:'text',
-
+			
+			
 			success: function(msg)
 			{
-				document.getElementById('msg').innerHTML= msg.substr(1) ;
+				document.getElementById('msg').innerHTML= msg.substr(0) ;
+				
+				if(msg.substr(0)=="此帳號已存在!")
+					exist=1;
+				else
+					exist=0;
+				
 			},
 
 			error:function(xhr, ajaxOptions, thrownError)
@@ -30,37 +40,71 @@
 				alert(thrownError);
 			}
 		});
+		
 	}
 		
+	function check() 
+	{
 		
-		
+		if (document.form.user.value == "")
+		{
+			document.getElementById('msg').innerHTML='請輸入帳號';
+			document.form.user.focus();
+			return false;
+		}
+		else if (document.form.user.value.length<2)
+		{
+			document.getElementById('msg').innerHTML='請輸入2個以上的字元';
+			document.form.user.focus();
+			return false;
+		}
+		else if(exist==1)
+		{
+			document.form.user.focus();
+			return false;
+		}
+		else if (document.form.pass.value == "")
+		{
+			document.getElementById('msg').innerHTML='';			
+			document.getElementById('pass_msg').innerHTML='請輸入密碼';
+			document.form.pass.focus();
+			return false;
+		}		
+		else if (document.form.pass.value != document.form.pass_kakuninn.value)
+		{
+			document.getElementById('msg').innerHTML='';			
+			document.getElementById('pass_msg').innerHTML='';
+			document.getElementById('kakuninn_msg').innerHTML='密碼確認錯誤';
+			document.form.pass_kakuninn.focus();
+			return false;
+		}		
+		else if (document.form.email.value == "")
+		{
+			document.getElementById('msg').innerHTML='';			
+			document.getElementById('pass_msg').innerHTML='';
+			document.getElementById('kakuninn_msg').innerHTML='';
+			document.getElementById('email_msg').innerHTML='請輸入電子信箱';
+			document.form.email.focus();
+			return false;
+		}
+		else 
+		{
+			document.getElementById('msg').innerHTML='';			
+			document.getElementById('pass_msg').innerHTML='';
+			document.getElementById('kakuninn_msg').innerHTML='';
+			document.getElementById('email_msg').innerHTML='';
+			
+			if (confirm('是否確定要送出？'+'\n' + 
+			'帳號：' + document.form.user.value + '\n' + 
+			'密碼：' + document.form.pass.value  + '\n' +
+			'電子郵件：' + document.form.email.value)) 
+				document.form.submit();
+		}
+
+	} 
 	</script>
 	
-	<?php
-		$link = mysqli_connect("localhost","root","123456","group_12")
-		or die("無法開啟MySQL資料庫連結!<br/>");
-		$msg="";
-		
-		mysqli_query($link,'SET CHARACTER SET utf8');
-		mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
-		
-		if(isset($_POST["submit"]))
-		{
-			$sql="insert into member values ('" . 
-				$_POST["user"] . "','" . 
-				$_POST["pass"] . "','" . 
-				$_POST["email"]."')";
-			
-		
-		
-		if( $result = mysqli_query($link, $sql) ) // 送出查詢的SQL指令
-			$msg= "<span style='color:#0000FF'>資料筆新增成功!<br>影響記錄數: 1筆</span>";	
-		else
-			$msg= "<span style='color:#FF0000'>資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" .mysqli_error($link) ."</span>";
-		
-		}
-		mysqli_close($link); // 關閉資料庫連結
-	?>
+	
 </head>
 <body>
 	<header>
@@ -97,20 +141,20 @@
 	
 	<div id="member_regist">
 		<h1>會員註冊</h1>
-		<form name="form" action="" method="POST" id="regist_input">
-			<h2>設定帳號　
-				<div id="user_check" onclick="check();">check</div>
+		<form name="form" action="regist_to_sql.php" method="POST" id="regist_input" >
+			<h2>設定帳號
+				<div id="user_check" onclick="user_check()">check</div>　
 				<span id="msg"></span>
 			</h2>
-			<input type="text" name="user" id="user" size="25">　※英數任意混合
-			<h2>設定密碼</h2>
+			<input type="text" name="user" id="user" size="25" onkeyup="user_check()">　※英數任意混合
+			<h2>設定密碼  <span id="pass_msg"></span></h2>
 			<input type="password" name="pass" id="pass" size="25">　※英數混合,長度6~32的字串
-			<h2>確認密碼</h2>
+			<h2>確認密碼  <span id="kakuninn_msg"></span></h2>
 			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">　※請再輸入一次密碼
-			<h2>電子信箱</h2>
+			<h2>電子信箱  <span id="email_msg"></span></h2>
 			<input type="email" name="email" id="email" size="25">　※請輸入有效的電子信箱
 			<br><br><br>
-			<input class="regist_btn" type="submit" name="submit" value="註冊">　　<input class="regist_btn" type="reset" value="清空重填">
+			<input class="regist_btn" type="button" name="button" value="註冊" onclick="return check();">　　<input class="regist_btn" type="reset" value="清空重填">
 		</form>	
 	</div>
 </body>

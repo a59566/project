@@ -53,6 +53,23 @@ h2
 	color: #FF0000;
 }
 
+#pass_msg
+{
+	font-size: 12px;
+	color: #FF0000;
+}
+
+#kakuninn_msg
+{
+	font-size: 12px;
+	color: #FF0000;
+}
+
+#email_msg
+{
+	font-size: 12px;
+	color: #FF0000;
+}
 .regist_btn
 {
 	background-color: #ffad33;
