@@ -33,7 +33,7 @@
 						else
 						{
 							$sql="insert into song values ('" . 
-								$_POST["track_title_1"] . "','" . 
+								$_POST["track_title_{$i}"] . "','" . 
 								$_POST["ablum"] . "','" . 
 								$_POST["artist"]. "','" . 
 								$_POST["genre"]. "','" . 
