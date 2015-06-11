@@ -21,7 +21,7 @@
 			data: $('#user').serialize(),
 			type:"POST",
 			dataType:'text',
-			
+			async:false, 
 			
 			success: function(msg)
 			{
@@ -45,7 +45,7 @@
 		
 	function check() 
 	{
-		
+		user_check();
 		if (document.form.user.value == "")
 		{
 			document.getElementById('msg').innerHTML='請輸入帳號';
@@ -146,7 +146,7 @@
 				<div id="user_check" onclick="user_check()">check</div>　
 				<span id="msg"></span>
 			</h2>
-			<input type="text" name="user" id="user" size="25" onkeyup="user_check()">　※英數任意混合
+			<input type="text" name="user" id="user" size="25">　※英數任意混合
 			<h2>設定密碼  <span id="pass_msg"></span></h2>
 			<input type="password" name="pass" id="pass" size="25">　※英數混合,長度6~32的字串
 			<h2>確認密碼  <span id="kakuninn_msg"></span></h2>
