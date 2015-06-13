@@ -40,7 +40,6 @@
 		</div>
 	</header>
 	
-	<div id="album_container">
 		<div id="album_left">
 			<div id="album_content">
 				<h1>七転八起☆至上主義！</h1>
@@ -59,6 +58,7 @@
 				</div>
 			</div>
 			<div id="album_track">
+			<table>
 		<?php
 			$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
@@ -68,49 +68,61 @@
 			$sql = "SELECT `track_title`,`artist`,`price`FROM `song` WHERE `id`=0";
 			
 			$result = mysqli_query($link, $sql);
-			echo "<table border=1>";
-			echo "<tr>
-			<td class=\"no\">No</td>
+			echo "<thead><tr>
+			<td style=\"border-left: none;\">No</td>
 			<td>試聽</td>
 			<td>歌曲名</td>
 			<td>演唱者</td>
 			<td>價格</td>
 			<td>　</td>
-			</tr>";
+			</tr></thead>";
 			$total_fields = mysqli_num_fields($result);
-			// 顯示每一筆記錄
+			
 			$n=1;
+			$tr_n=0;
+			echo "<tbody>";
 			while ($row = mysqli_fetch_row($result)) 
 			{
-
-			   echo "<tr>";
-			   echo "<td class=\"no\">".$n."</td>
+				if($tr_n%2==0)
+					echo "<tr class=\"tr2\">";
+				else
+					echo "<tr>";
+				echo "<td class=\"no\">".$n."</td>
 					<td></td>";
-			   for ( $i = 0; $i <= $total_fields-1; $i++ )
-			   {
+				for ( $i = 0; $i <= $total_fields-1; $i++ )
+				{
 				   switch($i)
 					{
 						case 0:
-							echo "<td class=\"title\">" . $row[$i] . "</td>";
+							echo "<td class=\"title\">".$row[$i]."</td>";
 							break;
 						case 1:
-							echo "<td class=\"artist\">" . $row[$i] . "</td>";
+							echo "<td class=\"artist\">".$row[$i]."</td>";
 							break;					
 						case 2:
-							echo "<td class=\"price\">" . $row[$i] . "</td>";
+							echo "<td class=\"price\">".$row[$i]."</td>";
 							break;
 					}
 				   
-			   }
-			   echo "</tr>";
-			   $n++;
+				}
+				echo "<td></td></tr>";
+				$n++;
+				$tr_n++;
 			}
-			echo "</table>";
-			mysqli_free_result($result); // 釋放佔用的記憶體
+			echo "</tbody>";
+			mysqli_free_result($result);
 
 			mysqli_close($link);
-		?>
+		?>			
+			<tfoot>
+				<tr>
+					<td colspan="6" id="table_foot">
+						<input id="selected_buy" type="submit" value="購買已選擇的商品">
+					</td>
+				</tr>
+			</tfoot>
+			</table>
 			</div>
 		</div>
-		<div id="album_right"></div>
-	</div>
+
+	
