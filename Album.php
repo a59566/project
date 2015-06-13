@@ -7,6 +7,7 @@
 	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
 </head>
 
+
 <body>
 	<header>
 		<div id="header_background">
@@ -57,7 +58,59 @@
 					<div class="content_text">320kbps MP3</div>
 				</div>
 			</div>
-			<div id="album_track"></div>
+			<div id="album_track">
+		<?php
+			$link = mysqli_connect("localhost","root","123456","group_12")
+				or die("無法開啟MySQL資料庫連結!<br/>");
+			mysqli_query($link,'SET CHARACTER SET utf8');
+			mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
+			
+			$sql = "SELECT `track_title`,`artist`,`price`FROM `song` WHERE `id`=0";
+			
+			$result = mysqli_query($link, $sql);
+			echo "<table border=1>";
+			echo "<tr>
+			<td class=\"no\">No</td>
+			<td>試聽</td>
+			<td>歌曲名</td>
+			<td>演唱者</td>
+			<td>價格</td>
+			<td>　</td>
+			</tr>";
+			$total_fields = mysqli_num_fields($result);
+			// 顯示每一筆記錄
+			$n=1;
+			while ($row = mysqli_fetch_row($result)) 
+			{
+
+			   echo "<tr>";
+			   echo "<td class=\"no\">".$n."</td>
+					<td></td>";
+			   for ( $i = 0; $i <= $total_fields-1; $i++ )
+			   {
+				   switch($i)
+					{
+						case 0:
+							echo "<td class=\"title\">" . $row[$i] . "</td>";
+							break;
+						case 1:
+							echo "<td class=\"artist\">" . $row[$i] . "</td>";
+							break;					
+						case 2:
+							echo "<td class=\"price\">" . $row[$i] . "</td>";
+							break;
+					}
+				   
+			   }
+			   echo "</tr>";
+			   $n++;
+			}
+			echo "</table>";
+			mysqli_free_result($result); // 釋放佔用的記憶體
+
+			mysqli_close($link);
+		?>
+			</div>
 		</div>
 		<div id="album_right"></div>
 	</div>

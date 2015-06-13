@@ -73,6 +73,17 @@ h1
 	margin: 20px auto;
 }
 
+table
+{
+	width: 600px;
+}
+
+.no
+{
+	width: 15px;
+	text-align: center;
+}
+
 #album_right
 {
 	height: 635px;
