@@ -1,0 +1,83 @@
+#album_container
+{
+	height: 700px;
+	width: 900px;	
+	margin: 60px auto;
+	font-family: "Microsoft JhengHei UI";
+}
+
+#album_left
+{
+	height: 635px;
+	width: 625px;
+	float: left;
+
+}
+
+#album_content
+{
+	height: 235px;
+	width: 600px;
+	border: 1px solid #999;
+	margin: 20px auto;
+}
+
+h1
+{
+	height: 25px;
+	width: 600px;
+	background-color: #e8e8e8;
+	float: left;
+    font-size: 18px;
+    font-weight: bold;
+	padding-left: 5px;
+	box-sizing: padding-box;
+	margin-top: 0px; 
+	margin-bottom: 5px;
+}
+
+#album_content img
+{
+	max-width: 200px;
+	height: 200px;
+	float: left;
+	margin-left: 5px;
+}
+
+#content_title
+{
+	height: 200px;
+	width: 90px;
+	margin-left: 30px;
+	float: left;
+}
+
+.content_text
+{
+	font-size: 18px;
+	margin-bottom:10px;
+}
+
+#content_info
+{
+	height: 200px;
+	width: 250px;
+	float: left;
+}
+
+#album_track
+{
+	height: 450px;
+	width: 600px;
+	border: 1px solid #999;
+	margin: 20px auto;
+}
+
+#album_right
+{
+	height: 635px;
+	width: 215px;
+	float: right;
+}
+
+
