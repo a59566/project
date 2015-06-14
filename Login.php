@@ -9,11 +9,65 @@
 	<script type="text/javascript">
 		function check()
 		{
-			if(document.form.id.value == "")
-				alert ('帳號尚未輸入！'); 
-		}
-		
+			if(document.form.user.value == "")
+			{
+				document.getElementById('member_error').innerHTML= '請輸入帳號!' ;
+				return false;
+			}
+				
+		}		
 	</script>
+	
+	<?php
+		session_start();	
+		
+		$msg="";
+		
+		if(isset($_POST["submit"]))
+		{
+		
+			$link = mysqli_connect("localhost","root","123456","group_12")
+			or die("無法開啟MySQL資料庫連結!<br/>");
+			
+			mysqli_query($link,'SET CHARACTER SET utf8');
+			mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
+			
+			$user = $_POST['user'];
+			$pass = $_POST['pass'];
+			
+			$sql = "SELECT `user`,`pass` FROM `member` WHERE `user`=\"$user\"";
+	
+			if($result = mysqli_query($link, $sql)) // 送出查詢的SQL指令
+			{																
+				$total_records=mysqli_num_rows($result);
+				
+				if($total_records==0)
+					$msg = "使用者帳號不存在!";
+				else
+				{
+					while($row = mysqli_fetch_assoc($result)) 
+					{				
+						if($row["pass"]==$pass)
+						{
+							$_SESSION["user"] = $user;
+							header('Location:Product_Page.html');							
+						}
+							
+						else
+						{
+							$_SESSION["user"] = "";
+							$msg="密碼錯誤!";
+						}
+							
+					}
+				}				
+			}
+			
+			
+			mysqli_close($link);
+			
+		}
+	?>
 </head>
 <body>
 	<header>
@@ -50,19 +104,20 @@
 	
         <div id="member_login">
        	  <h1>會員登入</h1>
-				<form action="" method="post" name="form">
+				<form action="<?=$_SERVER["PHP_SELF"]?>" method="post" name="form">
                 	<div id="member_input">
                         <h2>帳號</h2>
-                        <input name="user" type="text" size="25">
+                        <input name="user" id="user" type="text" size="25">
                         <h2>密碼</h2>
                         <input name="pass" type="password" size="25">
                    	  <div id="member_btn">
-                        	<input id="member_login_btn" type="submit" value="登入" onclick='check();'>
+                        	<input id="member_login_btn" type="submit" name="submit" value="登入" onclick='return check();'>
                             
-                            <a href="" id="member_new_btn">註冊</a>
+                            <a href="Regist.php" id="member_new_btn">註冊</a>
                         </div>                    
                     </div>                    
-				</form>  
+				</form>
+				<div id="member_error"><?=$msg?></div>
         </div>
         	
 </body>

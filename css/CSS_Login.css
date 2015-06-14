@@ -1,7 +1,7 @@
 /*以降はログインページcss*/
 
 #member_login {
-	height: 250px;
+	height: 270px;
 	width: 600px;
 	margin: 60px auto;
 	border: 1px solid #999;
@@ -21,7 +21,7 @@ h1 {
 }
 #member_input {
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 	margin-left: 80px;
 	margin-right: 20px;
 }
@@ -64,10 +64,11 @@ h2 {
 	background-color: #FF8C00;
 }
 #member_error {
-	margin-top: -30px;
+	width: 400px;
+	height: 40px;
 	margin-left: 80px;
-	color: #F00;
-	visibility: hidden;	
+	font-size: 18px;
+	color: #FF0000;
 }
 
 input {
