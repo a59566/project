@@ -1,35 +1,59 @@
 <!doctype html>
-<html lang="zh-Hant">
-<head>
-	<meta charset="UTF-8">
-	<title>Album</title>
-	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
-	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
-</head>
-
-<script language="JavaScript">
-	function select_all(obj,name)
-	{
-		var checkbox_arry = document.querySelectorAll(name);
-		for(var i=0;i<checkbox_arry.length;i++)
-		{
-			checkbox_arry[i].checked = obj.checked;
-		}
-	} 
-	
-	
-</script>
-
 <?php
 	session_start();
+	$id=10; //temp
+	
+	$link = mysqli_connect("localhost","root","123456","group_12")
+				or die("無法開啟MySQL資料庫連結!<br/>");
+			mysqli_query($link,'SET CHARACTER SET utf8');
+			mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
+			
+			
+	//album_name search
+	$album_name_sql = "SELECT `album_name` FROM `album_number` WHERE `album_no`=$id";
+	
+	$album_name_result = mysqli_query($link, $album_name_sql);
+	
+	while($row = mysqli_fetch_assoc($album_name_result))
+	{
+		$album_name = $row["album_name"];
+	}
+	
+	$info_sql = "SELECT * FROM `song` WHERE`ablum`=\"$album_name\"";
+	$result = mysqli_query($link, $info_sql);
+	
+	while($row = mysqli_fetch_assoc($result))
+	{
+		$album = $row["ablum"];
+		$artist = $row["artist"];
+		$genre = $row["genre"];
+		$img_path = $row["img_path"];
+	}
+	
+	
 	
 	if(isset($_POST["submit"]))
 	{
-		$id=0; //temp
-
-		echo $_POST["item"];
+		
+		
+		session_start();
+		
+		$_SESSION["id"]=$id;
+		$_SESSION["item_arry"]=$_POST["item"];
+		
+		header("Location: cart_cookie.php");
+		
+		
 	}
+	
 ?>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8">
+	<title><?=$album_name?></title>
+	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
+	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
+</head>
 
 <body>
 	<header>
@@ -65,52 +89,48 @@
 	
 		<div id="album_left">
 			<div id="album_content">
-				<h1>七転八起☆至上主義！</h1>
-				<img src="./img/cover/Cover.jpg" alt="">
+				<h1><?=$album_name?></h1>
+				<img src="<?="./".$img_path?>" alt="">
 				<div id="content_title">
 					<div class="content_text">演唱者</div>
 					<div class="content_text">曲風</div>
 					<div class="content_text">歌曲數</div>
-					<div class="content_text">音質</div>
 				</div>
 				<div id="content_info">
-					<div class="content_text">KOTOKO</div>
-					<div class="content_text">Anime</div>
-					<div class="content_text">4</div>
-					<div class="content_text">320kbps MP3</div>
+					<div class="content_text"><?=$artist?></div>
+					<div class="content_text"><?=$genre?></div>
+					<div class="content_text">4</div><!-- temp-->
 				</div>
+				<a id="sicyou_btn" href="">試聽</a><!-- temp-->
+				<form action="<?=$_SERVER["PHP_SELF"]?>">
+				<input  id="buy_btn" type="submit" name="submit" value="購買">
+				</form>							
 			</div>
+			
+				
 			<div id="album_track">
-			<form action="<?=$_SERVER["PHP_SELF"]?>" id="form" method="POST"><table>
-		<?php
-			$link = mysqli_connect("localhost","root","123456","group_12")
-				or die("無法開啟MySQL資料庫連結!<br/>");
-			mysqli_query($link,'SET CHARACTER SET utf8');
-			mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
 			
-			$sql = "SELECT `track_title`,`artist`,`price`FROM `song` WHERE `id`=0";
-			
-			$result = mysqli_query($link, $sql);
-			echo "<thead><tr>
-			<td style=\"border-left: none;\">No</td>
-			<td>試聽</td>
+			<table>		
+			<thead><tr>
+			<td style="border-left: none;">No</td>
 			<td>歌曲名</td>
 			<td>演唱者</td>
-			<td>價格</td>
-			<td><input type=\"checkbox\" onclick=\"select_all(this,'.checkbox')\"></td>
-			</tr></thead>";
+			</tr></thead><tbody>
+		<?php
+		
+			$id=10; //temp
+			
+			$result = mysqli_query($link, $info_sql);
 			$total_fields = mysqli_num_fields($result);
 			$n=1;
-			$tr_n=0;
-			echo "<tbody>";
-			while ($row = mysqli_fetch_row($result)) 
+			
+			while ($row = mysqli_fetch_row($result))
 			{
-				if($tr_n%2==0)
+				if(($n-1)%2==0)
 					echo "<tr class=\"tr2\">";
 				else
 					echo "<tr>";
-				echo "<td class=\"no\">".$n."</td>
-					<td></td>";
+				echo "<td class=\"no\">".$n."</td>";
 				for ( $i = 0; $i <= $total_fields-1; $i++ )
 				{
 				   switch($i)
@@ -118,32 +138,20 @@
 						case 0:
 							echo "<td class=\"title\">".$row[$i]."</td>";
 							break;
-						case 1:
-							echo "<td class=\"artist\">".$row[$i]."</td>";
-							break;					
 						case 2:
-							echo "<td class=\"price\">".$row[$i]."</td>";
-							break;
-					}
-				   
-				}
-				echo "<td class=\"select\"><input type=\"checkbox\" class=\"checkbox\" name=\"item[]\" value=$n></td></tr>";
+							echo "<td class=\"artist\">".$row[$i]."</td>";
+							break;						
+					}				   
+				}				
 				$n++;
-				$tr_n++;
-			}
-			echo "</tbody>";
-			mysqli_free_result($result);
 
+			}
+			
+			mysqli_free_result($result);
 			mysqli_close($link);
 		?>			
-			<tfoot>
-				<tr>
-					<td colspan="6" id="table_foot">
-						<input id="selected_buy" type="submit" name="submit" value="購買已選擇的商品">
-					</td>
-				</tr>
-			</tfoot>
-			</table></form>
+			</tbody>
+			</table>
 			</div>
 		</div>
 

@@ -27,7 +27,8 @@
 								$_POST["ablum"] . "','" . 
 								$_POST["artist_{$i}"]. "','" . 
 								$_POST["genre"]. "','" . 
-								$_POST["price"] ."')";
+								$_POST["price"]. "','" . 
+								$_POST["id"] ."')";
 						}
 				
 						else
@@ -37,7 +38,8 @@
 								$_POST["ablum"] . "','" . 
 								$_POST["artist"]. "','" . 
 								$_POST["genre"]. "','" . 
-								$_POST["price"] ."')";
+								$_POST["price"]. "','" . 
+								$_POST["id"] ."')";
 						}
 							
 						if( $result = mysqli_query($link, $sql) ) // 送出查詢的SQL指令
@@ -67,7 +69,8 @@
 </head>
 <body>
 		<form name='form' action='<?=$_SERVER['PHP_SELF']?>' method='POST' style="line-height: 28px;">
-			
+				id:
+				<input type="text" name="id"><br>
 				專輯名:　
 				<input type='text' name='ablum'><br>
 				演唱者:　
