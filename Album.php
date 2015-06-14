@@ -7,6 +7,29 @@
 	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
 </head>
 
+<script language="JavaScript">
+	function select_all(obj,name)
+	{
+		var checkbox_arry = document.querySelectorAll(name);
+		for(var i=0;i<checkbox_arry.length;i++)
+		{
+			checkbox_arry[i].checked = obj.checked;
+		}
+	} 
+	
+	
+</script>
+
+<?php
+	session_start();
+	
+	if(isset($_POST["submit"]))
+	{
+		$id=0; //temp
+
+		echo $_POST["item"];
+	}
+?>
 
 <body>
 	<header>
@@ -58,7 +81,7 @@
 				</div>
 			</div>
 			<div id="album_track">
-			<table>
+			<form action="<?=$_SERVER["PHP_SELF"]?>" id="form" method="POST"><table>
 		<?php
 			$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
@@ -74,10 +97,9 @@
 			<td>歌曲名</td>
 			<td>演唱者</td>
 			<td>價格</td>
-			<td>　</td>
+			<td><input type=\"checkbox\" onclick=\"select_all(this,'.checkbox')\"></td>
 			</tr></thead>";
 			$total_fields = mysqli_num_fields($result);
-			
 			$n=1;
 			$tr_n=0;
 			echo "<tbody>";
@@ -105,7 +127,7 @@
 					}
 				   
 				}
-				echo "<td></td></tr>";
+				echo "<td class=\"select\"><input type=\"checkbox\" class=\"checkbox\" name=\"item[]\" value=$n></td></tr>";
 				$n++;
 				$tr_n++;
 			}
@@ -117,11 +139,11 @@
 			<tfoot>
 				<tr>
 					<td colspan="6" id="table_foot">
-						<input id="selected_buy" type="submit" value="購買已選擇的商品">
+						<input id="selected_buy" type="submit" name="submit" value="購買已選擇的商品">
 					</td>
 				</tr>
 			</tfoot>
-			</table>
+			</table></form>
 			</div>
 		</div>
 
