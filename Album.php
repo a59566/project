@@ -1,7 +1,8 @@
 <!doctype html>
 <?php
 	session_start();
-	$id=10; //temp
+	
+	$id = $_GET["id"];
 	
 	$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
@@ -34,16 +35,17 @@
 	
 	if(isset($_POST["submit"]))
 	{
-		
-		
+			
 		session_start();
 		
-		$_SESSION["id"]=$id;
-		$_SESSION["item_arry"]=$_POST["item"];
+		if(strlen($_SESSION["user"])<2)
+			header("Location: Login.php");
 		
-		header("Location: cart_cookie.php");
-		
-		
+		else
+		{
+			$_SESSION["item"] = $id;
+			header("Location: cart_cookie.php");
+		}			
 	}
 	
 ?>
@@ -70,18 +72,18 @@
 				<div id="login_btn">
 				<a href="Login.html" class="no_underline_light">會員登入</a></div>
 				<div id="cart_btn">
-				<a href="" class="no_underline_light">購物車</a></div>
+				<a href="shoppingcart.php" class="no_underline_light">購物車</a></div>
 				</div>	
 
 			</div>
 			<div id="header_navi_background">
 				<ul id="navi_ul">
-					<li><a href="" class="no_underline_bold">Hi-Res</a></li>
-					<li><a href="" class="no_underline_bold">動畫</a></li>
-					<li><a href="" class="no_underline_bold">華語</a></li>
-					<li><a href="" class="no_underline_bold">日韓</a></li>
-					<li><a href="" class="no_underline_bold">歐美</a></li>
-					<li id="li_right"><a href="" class="no_underline_bold">古典</a></li>
+					<li><a href="hires.html" class="no_underline_bold">Hi-Res</a></li>
+					<li><a href="anime.html" class="no_underline_bold">動畫</a></li>
+					<li><a href="cpop.html" class="no_underline_bold">華語</a></li>
+					<li><a href="jkpop.html" class="no_underline_bold">日韓</a></li>
+					<li><a href="apop.html" class="no_underline_bold">歐美</a></li>
+					<li id="li_right"><a href="classical.html" class="no_underline_bold">古典</a></li>
 				</ul>
 			</div>			
 		</div>
@@ -102,8 +104,8 @@
 					<div class="content_text">4</div><!-- temp-->
 				</div>
 				<a id="sicyou_btn" href="">試聽</a><!-- temp-->
-				<form action="<?=$_SERVER["PHP_SELF"]?>">
-				<input  id="buy_btn" type="submit" name="submit" value="購買">
+				<form action="<?=$_SERVER["PHP_SELF"]?>" name="form" method="POST">
+				<input id="buy_btn" type="submit" name="submit" value="購買">
 				</form>							
 			</div>
 			

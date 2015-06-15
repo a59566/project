@@ -36,11 +36,12 @@
 			$pass = $_POST['pass'];
 			
 			$sql = "SELECT `user`,`pass` FROM `member` WHERE `user`=\"$user\"";
-	
+			
+			
 			if($result = mysqli_query($link, $sql)) // 送出查詢的SQL指令
 			{																
 				$total_records=mysqli_num_rows($result);
-				
+							
 				if($total_records==0)
 					$msg = "使用者帳號不存在!";
 				else
@@ -63,7 +64,7 @@
 				}				
 			}
 			
-			
+
 			mysqli_close($link);
 			
 		}
