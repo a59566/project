@@ -1,0 +1,106 @@
+#cart
+{
+	width: 550px;
+	margin: 80px auto;
+	font-family: "Microsoft JhengHei UI";
+}
+
+table
+{
+	width: 550px;
+	border-collapse: inherit;
+    border-spacing: 0;
+	border: 1px solid #999;
+	margin: 20px auto;
+	font-size: 18px;
+}
+
+thead
+{
+	text-align: center;
+	border-left: none;
+	height: 30px;
+}
+
+td
+{
+	border-left: 1px dotted;
+	vertical-align: middle;
+}
+
+.tr2
+{
+	background-color: #f0f0f0;
+}
+
+img
+{
+	max-height: 100px;
+	max-width: 100px;
+}
+
+.no
+{
+	width: 40px;
+	text-align: center;
+}
+
+.img
+{
+	border-left: 1px dotted;
+	vertical-align: middle;
+}
+
+.album
+{
+	border-left: none;
+	box-sizing: padding-box;
+	padding-left: 10px;
+}
+
+.price
+{
+	width: 50px;
+	border-left: 1px dotted;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.total
+{
+	height: 30px;
+	border-left: none;
+	text-align: right;
+	font-size: 18px;
+	box-sizing: padding-box;
+	padding-right: 5px;
+	border-top: 1px dotted #999;
+}
+
+#download
+{
+	background-color: #ffad33;
+    border: medium none;
+    border-radius: 5px;
+    box-sizing: padding-box;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    height: 30px;
+    margin-top: 20px;
+    text-align: center;
+    width: 100px;
+}
+
+#download:hover
+{
+	background-color: #FF8C00;
+}
+
+#link
+{
+	width: 550px;
+	margin: 80px auto;
+	font-family: "Microsoft JhengHei UI";
+}

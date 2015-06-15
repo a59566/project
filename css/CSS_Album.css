@@ -27,6 +27,9 @@ h1
 	box-sizing: padding-box;
 	margin-top: 0px; 
 	margin-bottom: 5px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #album_content img
@@ -49,6 +52,9 @@ h1
 {
 	font-size: 18px;
 	margin-bottom:10px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #content_info
@@ -68,7 +74,7 @@ h1
 
 table
 {
-	width: 600px;
+	width: 580px;
 	border-collapse: inherit;
     border-spacing: 0;
 	border: 1px solid #999;

@@ -12,7 +12,7 @@
 			
 			
 			//新增cookie
-			setcookie($user."[$item]", $item, time()+3600);
+			setcookie($user."[$item]", $item, time()+36000);
 			
 			header("Location: shoppingcart.php");
 		}
