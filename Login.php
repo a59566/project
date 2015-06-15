@@ -51,7 +51,7 @@
 						if($row["pass"]==$pass)
 						{
 							$_SESSION["user"] = $user;
-							header('Location:Product_Page.html');							
+							header('Location:anime.html');//temp							
 						}
 							
 						else

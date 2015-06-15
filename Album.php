@@ -2,8 +2,11 @@
 <?php
 	session_start();
 	
-	$id = $_GET["id"];
+	$id = $_GET["id"];	
+	$_SESSION["item"] = $id;
 	
+		
+		
 	$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
 			mysqli_query($link,'SET CHARACTER SET utf8');
@@ -11,7 +14,7 @@
 			
 			
 	//album_name search
-	$album_name_sql = "SELECT `album_name` FROM `album_number` WHERE `album_no`=$id";
+	$album_name_sql = "SELECT `album_name` FROM `album_detail` WHERE `album_no`=$id";
 	
 	$album_name_result = mysqli_query($link, $album_name_sql);
 	
@@ -31,22 +34,6 @@
 		$img_path = $row["img_path"];
 	}
 	
-	
-	
-	if(isset($_POST["submit"]))
-	{
-			
-		session_start();
-		
-		if(strlen($_SESSION["user"])<2)
-			header("Location: Login.php");
-		
-		else
-		{
-			$_SESSION["item"] = $id;
-			header("Location: cart_cookie.php");
-		}			
-	}
 	
 ?>
 <html lang="zh-Hant">
@@ -92,7 +79,7 @@
 		<div id="album_left">
 			<div id="album_content">
 				<h1><?=$album_name?></h1>
-				<img src="<?="./".$img_path?>" alt="">
+				<img src="<?=$img_path?>" alt="">
 				<div id="content_title">
 					<div class="content_text">演唱者</div>
 					<div class="content_text">曲風</div>
@@ -104,7 +91,7 @@
 					<div class="content_text">4</div><!-- temp-->
 				</div>
 				<a id="sicyou_btn" href="">試聽</a><!-- temp-->
-				<form action="<?=$_SERVER["PHP_SELF"]?>" name="form" method="POST">
+				<form action="cart_cookie.php" name="form" method="POST">
 				<input id="buy_btn" type="submit" name="submit" value="購買">
 				</form>							
 			</div>
@@ -120,7 +107,6 @@
 			</tr></thead><tbody>
 		<?php
 		
-			$id=10; //temp
 			
 			$result = mysqli_query($link, $info_sql);
 			$total_fields = mysqli_num_fields($result);
@@ -146,7 +132,7 @@
 					}				   
 				}				
 				$n++;
-
+				echo "</tr>";
 			}
 			
 			mysqli_free_result($result);
