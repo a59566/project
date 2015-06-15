@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 	<meta charset="UTF-8">
-	<title>ProductPage</title>
+	<title>古典音樂</title>
 	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
 	<link href="./css/CSS_Product_Page.css" rel="stylesheet" type="text/css" />
 
@@ -20,14 +20,15 @@
 			<div id="header_box">
 				<div id="header_mark"></div>
 				<div id="header_searchbar">
-					<form action="">						
-						<input id="search_text" value="" type="text" name="search_text" size="50">
+					<form action="search.php" name="searchform" method="GET" >						
+						<input id="search_text" value="" name="search_text" size="50" type="text">
+						
 						<input id="search_btn" value="" type="submit">						
 					</form>
 				</div>
                 <div id="header_btn">
 				<div id="login_btn">
-				<a href="Login.html" class="no_underline_light">會員登入</a></div>
+				<a href="Login.php" class="no_underline_light">會員登入</a></div>
 				<div id="cart_btn">
 				<a href="shoppingcart.php" class="no_underline_light">購物車</a></div>
 				</div>	
@@ -49,70 +50,70 @@
 		<div id="product_top">
 			<h1>本周銷售TOP10</h1>
 			<!-- 1 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=30">			
 			<div class="product_rank_num">1</div>			
 			<img src="img/claco04.jpg" alt="">
 			<div class="product_rank_name">多位演出者</div>
 			<div class="product_rank_artist">Beethoven - Greatest Hits</div>
 			</a></article>
 			<!-- 2 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=49">			
 			<div class="product_rank_num">2</div>			
 			<img src="img/claco11.jpg" alt="">
 			<div class="product_rank_name">Vienna Philharmonic Orchestra</div>
 			<div class="product_rank_artist">New Year's Concert 2008</div>
 			</a></article>
 			<!-- 3 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=46">			
 			<div class="product_rank_num">3</div>			
 			<img src="img/claco09.jpg" alt="">
 			<div class="product_rank_name">Alicia de Larrocha (piano), Sir Colin Davis & English Chamber Orchestra</div>
 			<div class="product_rank_artist">Mozart Piano Concertos Nos.20 & 21</div>
 			</a></article>
 			<!-- 4 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=52">			
 			<div class="product_rank_num">4</div>			
 			<img src="img/claco07.jpg" alt="">
 			<div class="product_rank_name">Franz Liszt</div>
 			<div class="product_rank_artist">Liszt Années de Pèlerinage</div>
 			</a></article>
 			<!-- 5 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=48">			
 			<div class="product_rank_num">5</div>			
 			<img src="img/claco08.jpg" alt="">
 			<div class="product_rank_name">Chicago Symphony Orchestra, Carlo Maria Giulini</div>
 			<div class="product_rank_artist">Pictures at an Exhibition / Night on Bald Mountain / Polovtsian Dances / Coronation of Boris / Gayaneh</div>
 			</a></article>
 			<!-- 6 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=51">			
 			<div class="product_rank_num">6</div>			
 			<img src="img/claco01.jpg" alt="">
 			<div class="product_rank_name">多位演出者</div>
 			<div class="product_rank_artist">Vivaldi: Le quattro stagioni</div>
 			</a></article>
 			<!-- 7 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=29">			
 			<div class="product_rank_num">7</div>			
 			<img src="img/claco12.jpg" alt="">
 			<div class="product_rank_name">David Garrett</div>
 			<div class="product_rank_artist">TIMELESS - Brahms & Bruch Violin Concertos</div>
 			</a></article>
 			<!-- 8 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=53">			
 			<div class="product_rank_num">8</div>			
 			<img src="img/claco06.jpg" alt="">
 			<div class="product_rank_name">Amadeus Mozart</div>
 			<div class="product_rank_artist">The Best of Mozart</div>
 			</a></article>
 			<!-- 9 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=31">			
 			<div class="product_rank_num">9</div>			
 			<img src="img/claco02.jpg" alt="">
 			<div class="product_rank_name">林昭亮</div>
 			<div class="product_rank_artist">Bruch Violin Concerto #1 and Scottish Fantasy</div>
 			</a></article>
 			<!-- 10 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=32">			
 			<div class="product_rank_num">10</div>			
 			<img src="img/claco05.jpg" alt="">
 			<div class="product_rank_name">Nikita Magaloff, piano</div>

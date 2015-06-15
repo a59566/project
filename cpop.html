@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 	<meta charset="UTF-8">
-	<title>ProductPage</title>
+	<title>華語音樂</title>
 	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
 	<link href="./css/CSS_Product_Page.css" rel="stylesheet" type="text/css" />
 
@@ -20,14 +20,15 @@
 			<div id="header_box">
 				<div id="header_mark"></div>
 				<div id="header_searchbar">
-					<form action="">						
-						<input id="search_text" value="" type="text" name="search_text" size="50">
+					<form action="search.php" name="searchform" method="GET" >						
+						<input id="search_text" value="" name="search_text" size="50" type="text">
+						
 						<input id="search_btn" value="" type="submit">						
 					</form>
 				</div>
                 <div id="header_btn">
 				<div id="login_btn">
-				<a href="Login.html" class="no_underline_light">會員登入</a></div>
+				<a href="Login.php" class="no_underline_light">會員登入</a></div>
 				<div id="cart_btn">
 				<a href="shoppingcart.php" class="no_underline_light">購物車</a></div>
 				</div>	
@@ -49,56 +50,56 @@
 		<div id="product_top">
 			<h1>本周銷售TOP10</h1>
 			<!-- 1 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=62">			
 			<div class="product_rank_num">1</div>			
 			<img src="img/cpopco01.jpg" alt="">
 			<div class="product_rank_name">林俊傑</div>
 			<div class="product_rank_artist">新地球</div>
 			</a></article>
 			<!-- 2 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=55">			
 			<div class="product_rank_num">2</div>			
 			<img src="img/cpopco04.jpg" alt="">
 			<div class="product_rank_name">鄧紫棋</div>
 			<div class="product_rank_artist">我是歌手-鄧紫棋篇</div>
 			</a></article>
 			<!-- 3 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=60">			
 			<div class="product_rank_num">3</div>			
 			<img src="img/cpopco11.jpg" alt="">
 			<div class="product_rank_name">光良</div>
 			<div class="product_rank_artist">那些未完成的</div>
 			</a></article>
 			<!-- 4 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=61">			
 			<div class="product_rank_num">4</div>			
 			<img src="img/cpopco12.jpg" alt="">
 			<div class="product_rank_name">李榮浩</div>
 			<div class="product_rank_artist">李榮浩同名專輯</div>
 			</a></article>
 			<!-- 5 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=54">			
 			<div class="product_rank_num">5</div>			
 			<img src="img/cpopco08.jpg" alt="">
 			<div class="product_rank_name">八三夭</div>
 			<div class="product_rank_artist">最後的831</div>
 			</a></article>
 			<!-- 6 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=58">			
 			<div class="product_rank_num">6</div>			
 			<img src="img/cpopco10.jpg" alt="">
 			<div class="product_rank_name">嚴爵</div>
 			<div class="product_rank_artist">不孤獨</div>
 			</a></article>
 			<!-- 7 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=64">			
 			<div class="product_rank_num">7</div>			
 			<img src="img/cpopco07.jpg" alt="">
 			<div class="product_rank_name">孫燕姿</div>
 			<div class="product_rank_artist">是時候</div>
 			</a></article>
 			<!-- 8 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=57">			
 			<div class="product_rank_num">8</div>			
 			<img src="img/cpopco03.jpg" alt="">
 			<div class="product_rank_name">多位演出者</div>
@@ -107,14 +108,14 @@
  </div>
 			</a></article>
 			<!-- 9 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=63">			
 			<div class="product_rank_num">9</div>			
 			<img src="img/cpopco02.jpg" alt="">
 			<div class="product_rank_name">周杰倫</div>
 			<div class="product_rank_artist">唉呦,不錯喔</div>
 			</a></article>
 			<!-- 10 -->
-			<article class="product_rank"><a class="no_underline_bold" href="">			
+			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=59">			
 			<div class="product_rank_num">10</div>			
 			<img src="img/cpopco05.jpg" alt="">
 			<div class="product_rank_name">MP魔幻力量</div>

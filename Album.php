@@ -23,6 +23,16 @@
 		$album_name = $row["album_name"];
 	}
 	
+	$album_listen_sql = "SELECT `album_listen` FROM `album_detail` WHERE `album_no`=$id";
+	
+	$album_listen_result = mysqli_query($link, $album_listen_sql);
+	
+	while($row = mysqli_fetch_assoc($album_listen_result))
+	{
+		$album_listen = $row["album_listen"];
+	}
+	
+	
 	$info_sql = "SELECT * FROM `song` WHERE`ablum`=\"$album_name\"";
 	$result = mysqli_query($link, $info_sql);
 	
@@ -33,8 +43,8 @@
 		$genre = $row["genre"];
 		$img_path = $row["img_path"];
 	}
-	
-	
+	$result = mysqli_query($link, $info_sql);
+	$total_records=mysqli_num_rows($result);//取得執行結果總筆數
 ?>
 <html lang="zh-Hant">
 <head>
@@ -50,14 +60,15 @@
 			<div id="header_box">
 				<div id="header_mark"></div>
 				<div id="header_searchbar">
-					<form action="">						
-						<input id="search_text" value="" type="text" name="search_text" size="50">
+					<form action="search.php" name="searchform" method="GET" >						
+						<input id="search_text" value="" name="search_text" size="50" type="text">
+						
 						<input id="search_btn" value="" type="submit">						
 					</form>
 				</div>
                 <div id="header_btn">
 				<div id="login_btn">
-				<a href="Login.html" class="no_underline_light">會員登入</a></div>
+				<a href="Login.php" class="no_underline_light">會員登入</a></div>
 				<div id="cart_btn">
 				<a href="shoppingcart.php" class="no_underline_light">購物車</a></div>
 				</div>	
@@ -88,9 +99,9 @@
 				<div id="content_info">
 					<div class="content_text"><?=$artist?></div>
 					<div class="content_text"><?=$genre?></div>
-					<div class="content_text">4</div><!-- temp-->
+					<div class="content_text"><?=$total_records?></div><!-- temp-->
 				</div>
-				<a id="sicyou_btn" href="">試聽</a><!-- temp-->
+				<a id="sicyou_btn" href="<?=$album_listen?>">試聽</a><!-- temp-->
 				<form action="cart_cookie.php" name="form" method="POST">
 				<input id="buy_btn" type="submit" name="submit" value="購買">
 				</form>							
@@ -108,7 +119,7 @@
 		<?php
 		
 			
-			$result = mysqli_query($link, $info_sql);
+			
 			$total_fields = mysqli_num_fields($result);
 			$n=1;
 			
