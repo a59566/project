@@ -57,12 +57,12 @@
 			</div>
 			<div id="header_navi_background">
 				<ul id="navi_ul">
-					<li><a href="hires.html" class="no_underline_bold">Hi-Res</a></li>
-					<li><a href="anime.html" class="no_underline_bold">動畫</a></li>
-					<li><a href="cpop.html" class="no_underline_bold">華語</a></li>
-					<li><a href="jkpop.html" class="no_underline_bold">日韓</a></li>
-					<li><a href="apop.html" class="no_underline_bold">歐美</a></li>
-					<li id="li_right"><a href="classical.html" class="no_underline_bold">古典</a></li>
+					<li><a href="hires.php" class="no_underline_bold">Hi-Res</a></li>
+					<li><a href="anime.php" class="no_underline_bold">動畫</a></li>
+					<li><a href="cpop.php" class="no_underline_bold">華語</a></li>
+					<li><a href="jkpop.php" class="no_underline_bold">日韓</a></li>
+					<li><a href="apop.php" class="no_underline_bold">歐美</a></li>
+					<li id="li_right"><a href="classical.php" class="no_underline_bold">古典</a></li>
 				</ul>
 			</div>			
 		</div>
@@ -106,7 +106,7 @@
 			<img src="img/anico06.jpg" alt="Album.php?id=8">
 			<div class="product_rank_name"><span class="new_artist">山本和臣</span></div>
 			<div class="product_rank_artist">
-			  <div class="new_title">TVアニメーション「トリアージX(イクス)」エンディング・テーマ ソレーユ・モア</div>
+			<div class="new_title">TVアニメーション「トリアージX(イクス)」エンディング・テーマ ソレーユ・モア</div>
 			</div>
 			</a></article>
 			<!-- 6 -->
