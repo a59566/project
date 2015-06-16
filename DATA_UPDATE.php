@@ -2,20 +2,28 @@
 <html lang="zh-Hant">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>資料庫新增</title>
 	<?php
-
-		$link = mysqli_connect("localhost","root","123456","group_12")
-		or die("無法開啟MySQL資料庫連結!<br/>");
-		$msg="";
-		$cnt=0;
 		
-		mysqli_query($link,'SET CHARACTER SET utf8');
-		mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
+		session_start();
+		
+		if(@$_SESSION["user"] != "user")
+			echo "非管理者帳號無法使用本頁面!";
+		else
+		{
+			$link = mysqli_connect("localhost","root","123456","group_12")
+			or die("無法開啟MySQL資料庫連結!<br/>");
+			$msg="";
+			$msg_2="";
+			$cnt=0;
+			
+			mysqli_query($link,'SET CHARACTER SET utf8');
+			mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
 		
 			
 			if(isset($_POST["submit"]))
 			{
+				//song
 				for($i=1;$i<=20;$i++)
 				{
 					if(strlen($_POST["track_title_{$i}"])>=1)
@@ -28,7 +36,7 @@
 								$_POST["artist_{$i}"]. "','" . 
 								$_POST["genre"]. "','" . 
 								$_POST["price"]. "','" . 
-								$_POST["id"] ."')";
+								$_POST["img_path"] ."')";
 						}
 				
 						else
@@ -39,17 +47,17 @@
 								$_POST["artist"]. "','" . 
 								$_POST["genre"]. "','" . 
 								$_POST["price"]. "','" . 
-								$_POST["id"] ."')";
+								$_POST["img_path"] ."')";
 						}
 							
 						if( $result = mysqli_query($link, $sql) ) // 送出查詢的SQL指令
 						{
 							$cnt++;
-							$msg= "<span style='color:#0000FF'>資料".$cnt."筆新增成功!<br>影響記錄數: ".$cnt."筆</span>";
+							$msg= "<span style='color:#0000FF'>song資料".$cnt."筆新增成功!<br>影響記錄數: ".$cnt."筆</span>";
 						}
 							
 						else
-							$msg= "<span style='color:#FF0000'>資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" .mysqli_error($link) ."</span>";
+							$msg= "<span style='color:#FF0000'>song資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" .mysqli_error($link) ."</span>";
 				
 						
 					
@@ -58,6 +66,22 @@
 					else
 						break;
 				}
+				
+				//album_detail
+				$sql_2="insert into album_detail values ('" . 
+								$_POST["id"] . "','" . 
+								$_POST["ablum"] . "','" . 
+								$_POST["sicyou"]. "','" . 
+								$_POST["download"]. "','" . 
+								$_POST["album_price"]."')";
+				if( $result_2 = mysqli_query($link, $sql_2) ) // 送出查詢的SQL指令
+						{
+							$cnt++;
+							$msg_2= "<br><span style='color:#0000FF'>album_detail資料1筆新增成功!<br>影響記錄數: 1 筆</span>";
+						}
+							
+						else
+							$msg_2= "<span style='color:#FF0000'>album_detail資料新增失敗！<br>錯誤代碼：" . mysqli_errno($link) . "<br>錯誤訊息：" .mysqli_error($link) ."</span>";
 			}
 		
 			mysqli_close($link); // 關閉資料庫連結
@@ -69,16 +93,23 @@
 </head>
 <body>
 		<form name='form' action='<?=$_SERVER['PHP_SELF']?>' method='POST' style="line-height: 28px;">
-				id:
-				<input type="text" name="id"><br>
+				
 				專輯名:　
-				<input type='text' name='ablum'><br>
+				<input type='text' name='ablum'>　　　專輯ID:　<input type="text" name='id'>
+				<br>				
 				演唱者:　
-				<input type="text" name='artist'><br>
+				<input type="text" name='artist'>　　　試聽:　　<input type="text" name='sicyou'>
+				<br>
 				曲風:　　
-				<input type='text' name='genre'>
-				價格:　
-				<input type='text' name='price'><br/><br/>
+				<input type='text' name='genre'>　　　下載:　　<input type='text' name='download'>
+				<br>
+				單曲價:　
+				<input type='text' name='price'>　　　專輯價:　<input type='text' name='album_price'>
+				<br>
+				img_path:
+				<input type="text" name="img_path">
+				<br><br>
+				
 				
 			曲目01:　<input type='text' name='track_title_1' size="25">　
 			個別演唱者:　<input type='text' name='artist_1' size="25">
@@ -144,7 +175,9 @@
 
 		</form>
 		<?=$msg ?>
+		<?=$msg_2?>
 	</div>
+	<?php }?>
 </body>
 </html>
 
