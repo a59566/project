@@ -8,7 +8,7 @@
 	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
 	<style type="text/css">
    
-	
+	#msg{width: 200px; height: 50px; text-align:center; margin: 50px auto; font-size:20px; color:red;}
 	.content{width: 355px; color: 6FF;}
 	.picture{width:200px;height:200px;}
 	.track_title{width:350px;height:200px;}
@@ -20,17 +20,7 @@
 	table{margin: 50px auto;}
 </style>
 </head>
-<script type="text/javascript">
-		function check()
-		{
-			if(document.form1.submit.value == "")
-			{
-				alert ('請輸入搜索值！'); 
-				return false;
-			}
-				
-		}		
-	</script>
+
 <body>
 	<header>
 	<?php
@@ -62,7 +52,7 @@
 	
 		<div id="header_background">
 			<div id="header_box">
-				<div id="header_mark"></div>
+				<a href="index.php"><div id="header_mark"></div></a>
 				<div id="header_searchbar">
 					<form action="search.php" name="searchform" method="GET" >						
 						<input id="search_text" value="" name="search_text" size="50" type="text">						
@@ -89,35 +79,39 @@
 		</div>
 	</header>
     <?php
-//if(isset($_GET['submit']))
-//{
-$search=$_GET['search_text'];
-//$picture=$row['img_path'];
-$link = mysqli_connect("localhost","root","123456","group_12")// 建立MySQL的資料庫連結
+
+	if($_GET['search_text']=="")
+		echo "<div id=\"msg\">請輸入搜索條件!</div>";
+	else{
+		$search=$_GET['search_text'];
+
+		$link = mysqli_connect("localhost","root","123456","group_12")// 建立MySQL的資料庫連結
         or die("無法開啟MySQL資料庫連結!<br>");
 
-// 送出編碼的MySQL指令
-mysqli_query($link, 'SET CHARACTER SET utf8');
-mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
+		// 送出編碼的MySQL指令
+		mysqli_query($link, 'SET CHARACTER SET utf8');
+		mysqli_query($link,"SET collation_connection = 'utf8_unicode_ci'");
 
 
-// 送出查詢的SQL指令
-if ( $result = mysqli_query($link, "SELECT * FROM song WHERE artist LIKE '%$search%' OR track_title LIKE '%$search%' OR ablum LIKE '%$search%' OR genre LIKE '%$search%'  ") ) { 
-    
-
-
-	
-	
-	?>
+		// 送出查詢的SQL指令
+		if ( $result = mysqli_query($link, "SELECT * FROM song WHERE artist LIKE '%$search%' OR track_title LIKE '%$search%' OR ablum LIKE '%$search%' OR genre LIKE '%$search%'  ") ) 
+		{ 
+			$total_records=mysqli_num_rows($result);
+			if($total_records == 0)
+				echo "未找到符合的搜尋結果!!";
+			else{
+			
+			
+			?>
 	<table border="1" >
-<?php while( $row = mysqli_fetch_assoc($result) ){ 
+	<?php while( $row = mysqli_fetch_assoc($result) ){ 
 
-     $album_no_sql = "SELECT `album_no` FROM `album_detail` WHERE `album_name`='$row[ablum]'";
-	$album_no_result = mysqli_query($link, $album_no_sql);
-    while($row2 = mysqli_fetch_assoc($album_no_result))
-	{
-		$album_no = $row2["album_no"];
-	}
+			 $album_no_sql = "SELECT `album_no` FROM `album_detail` WHERE `album_name`='$row[ablum]'";
+			$album_no_result = mysqli_query($link, $album_no_sql);
+			while($row2 = mysqli_fetch_assoc($album_no_result))
+			{
+				$album_no = $row2["album_no"];
+			}
 	
 ?>
 	
@@ -135,12 +129,13 @@ if ( $result = mysqli_query($link, "SELECT * FROM song WHERE artist LIKE '%$sear
     
 	<?php
 	} 
-    mysqli_free_result($result); // 釋放佔用的記憶體 
-} 
-mysqli_close($link); // 關閉資料庫連結
+		mysqli_free_result($result); // 釋放佔用的記憶體 
+		mysqli_close($link); // 關閉資料庫連結
+	} 
+	}
+	}
+	
 
-
-//}
 ?>	
 </table>
 </body>

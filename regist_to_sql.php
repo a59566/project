@@ -21,5 +21,5 @@
 		
 		mysqli_close($link);
 		
-		header('Location:Product_Page.html');
+		header('Location:index.php');
 ?>

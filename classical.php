@@ -45,7 +45,7 @@
 	
 		<div id="header_background">
 			<div id="header_box">
-				<div id="header_mark"></div>
+				<a href="index.php"><div id="header_mark"></div></a>
 				<div id="header_searchbar">
 					<form action="search.php" name="searchform" method="GET" >						
 						<input id="search_text" value="" name="search_text" size="50" type="text">						
@@ -66,7 +66,7 @@
 					<li><a href="cpop.php" class="no_underline_bold">華語</a></li>
 					<li><a href="jkpop.php" class="no_underline_bold">日韓</a></li>
 					<li><a href="apop.php" class="no_underline_bold">歐美</a></li>
-					<li id="li_right"><a href="classical.php" class="no_underline_bold">古典</a></li>
+					<li id="li_right"  style="background-color: #FFECC9;"><a href="classical.php" class="no_underline_bold">古典</a></li>
 				</ul>
 			</div>			
 		</div>
@@ -150,10 +150,10 @@
 		
 			<div class="slideShow">
 				<ul class="slides">
-					<li class="slide"><a href=""><img src="./img/slideshow_img/cla01.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/cla02.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/cla03.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/cla04.jpg" alt=""></a></li>
+					<li class="slide"><img src="./img/slideshow_img/cla01.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/cla02.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/cla03.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/cla04.jpg" alt=""></li>
 					
 				</ul>
 			</div>

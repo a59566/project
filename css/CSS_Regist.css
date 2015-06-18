@@ -3,7 +3,7 @@
 #member_regist 
 {
 	height: 440px;
-	width: 600px;
+	width: 500px;
 	margin: 60px auto;
 	border: 1px solid #999;
 	font-family: "Microsoft JhengHei UI";
@@ -25,9 +25,11 @@ h1
 
 #regist_input
 {
-	height: 350px;
-	width: 475px;
-	margin: 40px auto;
+	box-sizing: padding-box;
+    height: 350px;
+    margin: 40px auto;
+    padding-left: 120px;
+    width: 475px;
 }
 
 h2
@@ -79,6 +81,7 @@ h2
     font-size: 16px;
     height: 30px;
     width: 80px;
+	margin-left: 15px;
 }
 
 .regist_btn:hover 

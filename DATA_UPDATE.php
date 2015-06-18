@@ -107,7 +107,7 @@
 				<input type='text' name='price'>　　　專輯價:　<input type='text' name='album_price'>
 				<br>
 				img_path:
-				<input type="text" name="img_path">
+				<input type="text" name="img_path">　　
 				<br><br>
 				
 				
@@ -171,13 +171,14 @@
 			曲目20:　<input type='text' name='track_title_20' size="25">　
 			個別演唱者:　<input type='text' name='artist_20' size="25">
 			　　　
-			<input type='submit' value='資料新增' name="submit"><br/>			
+			<input type='submit' value='資料新增' name="submit">　　　　<a href="Logout.php">登出</a><br/>			
 
 		</form>
 		<?=$msg ?>
 		<?=$msg_2?>
 	</div>
 	<?php }?>
+	
 </body>
 </html>
 

@@ -85,7 +85,7 @@
 	
 		<div id="header_background">
 			<div id="header_box">
-				<div id="header_mark"></div>
+				<a href="index.php"><div id="header_mark"></div></a>
 				<div id="header_searchbar">
 					<form action="search.php" name="searchform" method="GET" >						
 						<input id="search_text" value="" name="search_text" size="50" type="text">						

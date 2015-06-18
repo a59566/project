@@ -41,7 +41,7 @@
 	
 		<div id="header_background">
 			<div id="header_box">
-				<div id="header_mark"></div>
+				<a href="index.php"><div id="header_mark"></div></a>
 				<div id="header_searchbar">
 					<form action="search.php" name="searchform" method="GET" >						
 						<input id="search_text" value="" name="search_text" size="50" type="text">						
@@ -58,7 +58,7 @@
 			<div id="header_navi_background">
 				<ul id="navi_ul">
 					<li><a href="hires.php" class="no_underline_bold">Hi-Res</a></li>
-					<li><a href="anime.php" class="no_underline_bold">動畫</a></li>
+					<li style="background-color: #FFECC9;"><a href="anime.php" class="no_underline_bold">動畫</a></li>
 					<li><a href="cpop.php" class="no_underline_bold">華語</a></li>
 					<li><a href="jkpop.php" class="no_underline_bold">日韓</a></li>
 					<li><a href="apop.php" class="no_underline_bold">歐美</a></li>
@@ -150,10 +150,10 @@
 		
 			<div class="slideShow">
 				<ul class="slides">
-					<li class="slide"><a href=""><img src="./img/slideshow_img/ani01.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/ani02.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/ani03.jpg" alt=""></a></li>
-					<li class="slide"><a href=""><img src="./img/slideshow_img/ani04.jpg" alt=""></a></li>
+					<li class="slide"><img src="./img/slideshow_img/ani01.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/ani02.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/ani03.jpg" alt=""></li>
+					<li class="slide"><img src="./img/slideshow_img/ani04.jpg" alt=""></li>
 					
 				</ul>
 			</div>

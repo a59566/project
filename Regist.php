@@ -137,7 +137,7 @@
 	
 		<div id="header_background">
 			<div id="header_box">
-				<div id="header_mark"></div>
+				<a href="index.php"><div id="header_mark"></div></a>
 				<div id="header_searchbar">
 					<form action="search.php" name="searchform" method="GET" >						
 						<input id="search_text" value="" name="search_text" size="50" type="text">						
@@ -172,13 +172,13 @@
 				<div id="user_check" onclick="user_check()">check</div>　
 				<span id="msg"></span>
 			</h2>
-			<input type="text" name="user" id="user" size="25">　※英數任意混合
+			<input type="text" name="user" id="user" size="25">
 			<h2>設定密碼  <span id="pass_msg"></span></h2>
-			<input type="password" name="pass" id="pass" size="25">　※英數混合,長度6~32的字串
+			<input type="password" name="pass" id="pass" size="25">
 			<h2>確認密碼  <span id="kakuninn_msg"></span></h2>
-			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">　※請再輸入一次密碼
+			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">
 			<h2>電子信箱  <span id="email_msg"></span></h2>
-			<input type="email" name="email" id="email" size="25">　※請輸入有效的電子信箱
+			<input type="email" name="email" id="email" size="25">
 			<br><br><br>
 			<input class="regist_btn" type="button" name="button" value="註冊" onclick="return check();">　　<input class="regist_btn" type="reset" value="清空重填">
 		</form>	

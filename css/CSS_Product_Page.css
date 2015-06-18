@@ -10,7 +10,7 @@
 
 #product_top
 {
-	height: 635px;
+	height: 560px;
 	width: 215px;
 	float: left;
 	border: 1px solid #999;
@@ -31,7 +31,7 @@ h1
 
 .product_rank
 {
-	height: 60px;
+	height: 52px;
 	width: 215px;
 	box-sizing: padding-box;
 	padding-left: 5px;
@@ -95,7 +95,6 @@ h1
     position: relative;
     width: 620px;
 	margin: 0 auto;
-	background-color: #e8e8e8;
 }
 
 .slides 
@@ -117,7 +116,7 @@ h1
 {
 	height: 282px;
 	width: 620px;
-	margin: 20px auto;
+	margin: 27px auto;
 	border: 1px solid #999;	
 }
 
