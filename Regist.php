@@ -52,9 +52,9 @@
 			document.form.user.focus();
 			return false;
 		}
-		else if (document.form.user.value.length<2)
+		else if (document.form.user.value.length<2 || document.form.user.value.length>32)
 		{
-			document.getElementById('msg').innerHTML='請輸入2個以上的字元';
+			document.getElementById('msg').innerHTML='帳號長度不符合規定';
 			document.form.user.focus();
 			return false;
 		}
@@ -69,7 +69,14 @@
 			document.getElementById('pass_msg').innerHTML='請輸入密碼';
 			document.form.pass.focus();
 			return false;
-		}		
+		}
+		else if (document.form.pass.value.length<6 || document.form.pass.value.length>32)
+		{
+			document.getElementById('msg').innerHTML='';			
+			document.getElementById('pass_msg').innerHTML='密碼長度不符合規定';
+			document.form.pass.focus();
+			return false;
+		}
 		else if (document.form.pass.value != document.form.pass_kakuninn.value)
 		{
 			document.getElementById('msg').innerHTML='';			
@@ -172,16 +179,16 @@
 				<div id="user_check" onclick="user_check()">check</div>　
 				<span id="msg"></span>
 			</h2>
-			<input type="text" name="user" id="user" size="25">
+			<input type="text" name="user" id="user" size="25">　※英數混合,長度2~32的字串
 			<h2>設定密碼  <span id="pass_msg"></span></h2>
-			<input type="password" name="pass" id="pass" size="25">
+			<input type="password" name="pass" id="pass" size="25">　※英數混合,長度6~32的字串
 			<h2>確認密碼  <span id="kakuninn_msg"></span></h2>
-			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">
+			<input type="password" name="pass_kakuninn" id="pass_kakuninn" size="25">　※請再輸入一次密碼
 			<h2>電子信箱  <span id="email_msg"></span></h2>
-			<input type="email" name="email" id="email" size="25">
+			<input type="email" name="email" id="email" size="25">　※請輸入有效的電子信箱
 			<br><br><br>
 			<input class="regist_btn" type="button" name="button" value="註冊" onclick="return check();">　　<input class="regist_btn" type="reset" value="清空重填">
-		</form>	
+		</form>		
 	</div>
 </body>
 </html>
