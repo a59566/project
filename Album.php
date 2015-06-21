@@ -5,8 +5,19 @@
 	$id = $_GET["id"];	
 	$_SESSION["item"] = $id;
 	
-		
-		
+	$member = $_SESSION["user"];
+	
+	//放入購物車訊息
+	$cart_msg="";
+	if(isset($_COOKIE["$member"]))
+	{
+		foreach($_COOKIE["$member"] as $item) 
+		{
+			if($item == $id)
+				$cart_msg="此專輯已加入購物車";
+		}	
+	}
+	
 	$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
 			mysqli_query($link,'SET CHARACTER SET utf8');
@@ -61,7 +72,7 @@
 		if(isset($_SESSION["user"]))
 		{
 			
-			$member = $_SESSION["user"];
+			
 			
 			//管理者按鈕
 			if($_SESSION["user"]=="user")
@@ -126,9 +137,10 @@
 					<div class="content_text"><?=$genre?></div>
 					<div class="content_text"><?=$total_records?></div><!-- temp-->
 				</div>
+				<div id="cart_msg"><?=$cart_msg?></div>
 				<a id="sicyou_btn" href="<?=$album_listen?>">試聽</a><!-- temp-->
 				<form action="cart_cookie.php" name="form" method="POST">
-				<input id="buy_btn" type="submit" name="submit" value="購買">
+				<input id="buy_btn" type="submit" name="buy" value="購買">
 				</form>							
 			</div>
 			

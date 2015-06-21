@@ -14,7 +14,7 @@
 			//新增cookie
 			setcookie($user."[$item]", $item, time()+36000);
 			
-			header("Location: shoppingcart.php");
+			header("Location:".$_SERVER["HTTP_REFERER"]);
 		}
 		
 		
