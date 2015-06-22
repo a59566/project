@@ -57,7 +57,7 @@
 							
 						else
 						{
-							$_SESSION["user"] = "";
+							
 							$msg="密碼錯誤!";
 						}
 							

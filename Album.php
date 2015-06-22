@@ -4,20 +4,23 @@
 	
 	$id = $_GET["id"];	
 	$_SESSION["item"] = $id;
-	
-	$member = $_SESSION["user"];
-	
-	//放入購物車訊息
 	$cart_msg="";
-	if(isset($_COOKIE["$member"]))
-	{
-		foreach($_COOKIE["$member"] as $item) 
-		{
-			if($item == $id)
-				$cart_msg="此專輯已加入購物車";
-		}	
-	}
 	
+	if(isset($_SESSION["user"]))
+		{
+			$member = $_SESSION["user"];
+			
+			//放入購物車訊息
+			
+			if(isset($_COOKIE["$member"]))
+			{
+				foreach($_COOKIE["$member"] as $item) 
+				{
+					if($item == $id)
+						$cart_msg="此專輯已加入購物車";
+				}	
+			}
+	}
 	$link = mysqli_connect("localhost","root","123456","group_12")
 				or die("無法開啟MySQL資料庫連結!<br/>");
 			mysqli_query($link,'SET CHARACTER SET utf8');
@@ -85,7 +88,7 @@
 			//未登入按鈕
 		else
 		{
-			$url = $_SERVER['PHP_SELF'];
+			$url = $_SERVER['PHP_SELF']."?id=".$id;
 			$login_btn = "<a href=\"Login.php?url=$url\" class=\"no_underline_light\">會員登入</a>";
 		}
 			

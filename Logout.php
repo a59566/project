@@ -6,10 +6,16 @@
 </head>
 <body>
 	<?php
-		session_start();		
+		session_start();
+		$user=$_SESSION["user"];
 		session_destroy();
 		header("Location:index.php");
-		
+		//刪除舊cookie
+		if(isset($_COOKIE[$user]))
+		{
+			while(list($name, $value) = each($_COOKIE[$user]))
+				setcookie($user."[".$name."]", "", time()-36000);					
+		}
 	?>
 </body>
 </html>

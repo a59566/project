@@ -73,14 +73,14 @@
 			<!-- 1 -->
 			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=5">			
 			<div class="product_rank_num">1</div>			
-			<img src="img/anico04.jpeg" alt="Album.php?id=5">
+			<img src="img/anico04.jpg" alt="Album.php?id=5">
 			<div class="product_rank_name">UNISON SQUARE GARDEN</div>
 			<div class="product_rank_artist">シュガーソングとビターステップ</div>
 			</a></article>
 			<!-- 2 -->
 			<article class="product_rank"><a class="no_underline_bold" href="Album.php?id=6">			
 			<div class="product_rank_num">2</div>			
-			<img src="img/anico05.jpeg" alt="Album.php?id=6">
+			<img src="img/anico05.jpg" alt="Album.php?id=6">
 			<div class="product_rank_name">
 			  <div class="new_artist">SawanoHiroyuki[nZk]</div>
 			</div>
@@ -188,7 +188,7 @@
 					</a></article>
 				<article class="product_items"><a href="Album.php?id=5" class="no_underline_bold">
 						<div class="item_cover">
-							<img src="img/anico04.jpeg" alt="">
+							<img src="img/anico04.jpg" alt="">
 						</div>
 						<div class="item_info">
 							<div class="item_artist">UNISON SQUARE GARDEN</div>
@@ -197,7 +197,7 @@
 					</a></article>
 				<article class="product_items"><a href="Album.php?id=6" class="no_underline_bold">
 						<div class="item_cover">
-							<img src="img/anico05.jpeg" alt="">
+							<img src="img/anico05.jpg" alt="">
 						</div>
 						<div class="item_info">
 							<div class="item_artist">SawanoHiroyuki[nZk]</div>
