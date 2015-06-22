@@ -5,19 +5,27 @@
 	<title>search</title>
 
 	<link href="./css/CSS_Header.css" rel="stylesheet" type="text/css" />
-	<link href="./css/CSS_Album.css" rel="stylesheet" type="text/css" />
+	
 	<style type="text/css">
    
-	#msg{width: 200px; height: 50px; text-align:center; margin: 50px auto; font-size:20px; color:red;}
-	.content{width: 355px; color: 6FF;}
-	.picture{width:200px;height:200px;}
-	.track_title{width:350px;height:200px;}
-	.ablum{width:250px;height:200px}
+	#msg{width: 300px; height: 50px; text-align:center; margin: 50px auto; font-size:20px; color:red;}
+	.picture{width:150px;height:150px;}
+	.title{width:350px;height:150px;}
+	.album{width:250px;height:150px}
+	.artist{width: 100px; height: 50px}
+	.genre{width:50px;height:150px}
 	
-	.genre{width:50px;height:200px}
-	.price{width:30px;
-	text-align: center;}
-	table{margin: 50px auto;}
+	#title_picture{width:150px;height:30px;}
+	#title_title{width:350px;height:30px;}
+	#title_album{width:250px;height:30px}
+	#title_artist{width: 100px; height: 30px}
+	#title_genre{width:50px;height:30px}
+	
+	
+	thead{text-align: center;}
+	table{margin: 50px auto;  border-collapse: inherit;  border-spacing: 0;}
+	img{max-height:150px; max-width:150px;}
+	
 </style>
 </head>
 
@@ -98,12 +106,21 @@
 		{ 
 			$total_records=mysqli_num_rows($result);
 			if($total_records == 0)
-				echo "未找到符合的搜尋結果!!";
+				echo "<div id=\"msg\">未找到符合的搜尋結果!!</div>";
 			else{
 			
 			
 			?>
 	<table border="1" >
+	<thead>
+	<tr>
+		<td id="title_picture">專輯封面</td>
+		<td id="title_title">歌曲名稱</td>
+		<td id="title_album">專輯</td>
+		<td id="title_artist">演唱者</td>
+		<td id="title_genre">類型</td>
+	</tr>
+	</thead>
 	<?php while( $row = mysqli_fetch_assoc($result) ){ 
 
 			 $album_no_sql = "SELECT `album_no` FROM `album_detail` WHERE `album_name`='$row[ablum]'";
@@ -115,14 +132,13 @@
 	
 ?>
 	
-<tr align="center">
-          
+		<tr align="center">
+         
          <td class="picture" ><a href='Album.php?id=<?=$album_no?>'><?php echo "<img src='$row[img_path]'/>";?></td>
          <td class="title" ><?php echo $row["track_title"];?></td>
-         <td  class="album_content"><?php echo $row["ablum"];?></td>
-		 <td  class="artist"><?php echo $row["artist"];?></td>
-		 <td  class="genre"><?php echo $row["genre"];?></td>
-		 <td  class="price"><?php echo $row["price"];?></td>
+         <td class="album"><?php echo $row["ablum"];?></td>
+		 <td class="artist"><?php echo $row["artist"];?></td>
+		 <td class="genre"><?php echo $row["genre"];?></td>
 		 </tr>
 		 
         

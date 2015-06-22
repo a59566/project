@@ -126,7 +126,6 @@ td
 {
 	background-color: #ffad33;
     border: medium none;
-	border-radius: 5px;
     box-sizing: padding-box;
     color: #fff;
     cursor: pointer;
@@ -151,7 +150,6 @@ td
 {
 	background-color: #ffad33;
     border: medium none;
-	border-radius: 5px;
 	box-sizing: padding-box;
     color: #fff;
     cursor: pointer;

@@ -1,0 +1,50 @@
+#album_update_container
+{
+	height: 720px;
+	width: 600px;
+	margin: 60px auto;
+	border: 1px solid #999;
+	font-family: "Microsoft JhengHei UI";
+}
+
+h1
+{
+	background-color: #e8e8e8;
+    box-sizing: padding-box;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 8px;
+    margin-top: 0;
+    padding-left: 8px;
+    width: 100%;
+}
+
+#update_form
+{
+	margin: 40px;
+}
+
+.btn
+{
+	background-color: #ffad33;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    margin-left: 120px;
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+	border: none;
+	font-family: "Microsoft JhengHei UI";
+	line-height: 24px;
+}
+
+.btn:hover
+{
+	background-color: #FF8C00;
+}

@@ -1,0 +1,68 @@
+#album_delete_container
+{
+	height: 200px;
+	width: 400px;
+	margin: 60px auto;
+	border: 1px solid #999;
+	font-family: "Microsoft JhengHei UI";
+}
+
+h1
+{
+	background-color: #e8e8e8;
+    box-sizing: padding-box;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 8px;
+    margin-top: 0;
+    padding-left: 8px;
+    width: 100%;
+}
+
+#delete_form
+{
+	margin: 40px;
+	height: 100px;
+}
+
+h2
+{
+	font-size: 16px;
+	font-weight: unset;
+}
+
+#delete_btn
+{
+	background-color: #ffad33;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    height: 25px;
+	margin: 30px auto;
+    font-size: 16px;
+    text-align: center;
+    width: 80px;
+	border: none;
+	font-family: "Microsoft JhengHei UI";
+}
+
+#delete_btn:hover
+{
+	background-color: #FF8C00;
+}
+
+
+
+span
+{
+	float: left;
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+red
+{
+	color:red;
+}
